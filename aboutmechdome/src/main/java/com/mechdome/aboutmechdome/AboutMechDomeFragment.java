@@ -1,6 +1,9 @@
 package com.mechdome.aboutmechdome;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
@@ -8,63 +11,47 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mechdome.view.google.AdMobNativeView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
  * to handle interaction events.
- * Use the {@link AboutMechDomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class AboutMechDomeFragment extends Fragment {
-
-    public AboutMechDomeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AboutMechDomeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AboutMechDomeFragment newInstance(String param1, String param2) {
-        AboutMechDomeFragment fragment = new AboutMechDomeFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-    }
-
+    private View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_about_mech_dome, container, false);
-    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
+        view=inflater.inflate(R.layout.fragment_about_mech_dome, container, false);
+        AdMobNativeView adView = (AdMobNativeView)view.findViewById(R.id.adview);
+        adView.init("ca-app-pub-2729669460650010~5828110486", "ca-app-pub-2729669460650010/7304843682", false);
+        return view;
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
+    public void onResume() {
+        super.onResume();
+        TextView textView = (TextView) view.findViewById(R.id.textView);
+        ColorDrawable drawable = (ColorDrawable) view.getRootView().getBackground();
+        if (isColorDark(drawable.getColor())){
+            textView.setTextColor(Color.parseColor("#FFFFFF"));
+        } else {
+            textView.setTextColor(Color.parseColor("#000000"));
+        }
+    }
+
+
+    public boolean isColorDark(int color) {
+        double darkness = 1-(0.299* Color.red(color) + 0.587*Color.green(color) + 0.114*Color.blue(color))/255;
+        if(darkness<0.4){
+            return false; // It's a light color
+        }else{
+            return true; // It's a dark color
+        }
     }
 }

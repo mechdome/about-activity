@@ -20,6 +20,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.mechdome.view.google.AdMobNativeView;
@@ -31,10 +32,9 @@ public class AboutMechDomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_about_mech_dome);
-
         // Setup the AdMob View
-
         Bundle b = getIntent().getExtras();
         boolean testMode = false;
         if (b != null) {
@@ -48,12 +48,15 @@ public class AboutMechDomeActivity extends Activity {
 
         ActionBar ab = getActionBar();
         if (ab != null) {
+            Log.d("Drinks","Action bar is not null");
             ab.setTitle(R.string.about_mechdome);
             ab.setDisplayHomeAsUpEnabled(true);
             ab.setDisplayShowHomeEnabled(true);
             // No app icon
             getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+            ab.show();
         }
+        Log.d("Drinks","Action bar is " + ab);
     }
 
     @Override

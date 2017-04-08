@@ -19,7 +19,7 @@
         custom:layout_constraintBottom_toBottomOf="parent"
         custom:layout_constraintLeft_toLeftOf="parent"
         custom:layout_constraintRight_toRightOf="parent"
-        custom:layout_constraintTop_toBottomOf="@+id/button"
+        custom:layout_constraintTop_toBottomOf="@+id/buttonBuy"
         custom:layout_constraintVertical_bias="0.0"
         />
 
@@ -41,12 +41,10 @@
         tools:textColor="?android:attr/textColorPrimary" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="false"
         android:text="Disable Ads"
-        android:visibility="gone"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         custom:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -54,13 +52,11 @@
         custom:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonRestore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:enabled="false"
         android:text="Restore Purchase"
-        android:visibility="gone"
         android:layout_marginTop="8dp"
         custom:layout_constraintTop_toBottomOf="@+id/imageView"
         android:layout_marginRight="8dp"

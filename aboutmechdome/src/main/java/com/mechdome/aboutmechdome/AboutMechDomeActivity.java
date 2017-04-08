@@ -20,35 +20,29 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-
-import com.mechdome.view.google.AdMobNativeView;
 
 public class AboutMechDomeActivity extends Activity {
 
     public static final String TEST_MODE = "testmode";
 
+    public boolean inTestMode = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_about_mech_dome);
+
         // Setup the AdMob View
         Bundle b = getIntent().getExtras();
-        boolean testMode = false;
         if (b != null) {
-            testMode = b.getBoolean(TEST_MODE);
+            inTestMode = b.getBoolean(TEST_MODE);
         }
-
-        AdMobNativeView adView = (AdMobNativeView)findViewById(R.id.adview);
-        adView.init("ca-app-pub-2729669460650010~5828110486", "ca-app-pub-2729669460650010/7304843682", testMode);
 
         // Action bar
 
         ActionBar ab = getActionBar();
         if (ab != null) {
-            Log.d("Drinks","Action bar is not null");
             ab.setTitle(R.string.about_mechdome);
             ab.setDisplayHomeAsUpEnabled(true);
             ab.setDisplayShowHomeEnabled(true);
@@ -56,7 +50,6 @@ public class AboutMechDomeActivity extends Activity {
             getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
             ab.show();
         }
-        Log.d("Drinks","Action bar is " + ab);
     }
 
     @Override

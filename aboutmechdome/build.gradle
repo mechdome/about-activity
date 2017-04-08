@@ -10,7 +10,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 3
+        versionCode 4
         versionName "1.0"
     }
     buildTypes {
@@ -59,7 +59,7 @@ signing {
 
 group = "com.mechdome"
 archivesBaseName = "MechDome-About"
-version = "0.3"
+version = "0.4"
 
 uploadArchives {
     repositories {
@@ -79,7 +79,7 @@ uploadArchives {
                 packaging 'aar'
                 artifactId 'MechDome-About'
                 groupId 'com.mechdome'
-                version '0.3'
+                version '0.4'
                 // optionally artifactId can be defined here
                 description 'Pushing MechDome Application to Maven Central repo'
                 url 'http://www.mechdome.com'

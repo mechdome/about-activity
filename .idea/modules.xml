@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AboutActivity.iml" filepath="$PROJECT_DIR$/AboutActivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/about-activity.iml" filepath="$PROJECT_DIR$/about-activity.iml" />
       <module fileurl="file://$PROJECT_DIR$/aboutmechdome/aboutmechdome.iml" filepath="$PROJECT_DIR$/aboutmechdome/aboutmechdome.iml" />
     </modules>

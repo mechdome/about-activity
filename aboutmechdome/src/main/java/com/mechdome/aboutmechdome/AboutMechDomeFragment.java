@@ -46,7 +46,6 @@ public class AboutMechDomeFragment extends Fragment {
 
         Button buyButton = (Button)view.findViewById(R.id.buttonBuy);
         Button restoreButton = (Button)view.findViewById(R.id.buttonRestore);
-        View adView = view.findViewById(R.id.adview);
 
         Bundle bundle = null;
         try {
@@ -105,16 +104,15 @@ public class AboutMechDomeFragment extends Fragment {
             }
         }
 
+        boolean testMode = Build.CPU_ABI.contains("86") ? true : ((AboutMechDomeActivity)getActivity()).inTestMode;
+        AdMobNativeView adView = (AdMobNativeView)view.findViewById(R.id.adview);
+        adView.init("ca-app-pub-2729669460650010~5828110486", "ca-app-pub-2729669460650010/7304843682", testMode);
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
-        boolean testMode = Build.CPU_ABI.contains("86") ? true : ((AboutMechDomeActivity)getActivity()).inTestMode;
-        AdMobNativeView adView = (AdMobNativeView)view.findViewById(R.id.adview);
-        adView.init("ca-app-pub-2729669460650010~5828110486", "ca-app-pub-2729669460650010/7304843682", testMode);
 
         TextView textView = (TextView) view.findViewById(R.id.textView);
         ColorDrawable drawable = (ColorDrawable) view.getRootView().getBackground();

@@ -32,10 +32,12 @@ public class AboutMechDomeFragment extends Fragment {
         Button buyButton = (Button)view.findViewById(R.id.buttonBuy);
         Button restoreButton = (Button)view.findViewById(R.id.buttonRestore);
         View adView = view.findViewById(R.id.adview);
+        TextView textOSS = (TextView)view.findViewById(R.id.textViewSupportOSS);
 
         adView.setVisibility(GONE);
         buyButton.setVisibility(GONE);
         restoreButton.setVisibility(GONE);
+        textOSS.setVisibility(GONE);
 
         getActivity().findViewById(android.R.id.content).requestLayout();
     }
@@ -115,11 +117,15 @@ public class AboutMechDomeFragment extends Fragment {
         super.onResume();
 
         TextView textView = (TextView) view.findViewById(R.id.textView);
+        TextView textOSS = (TextView)view.findViewById(R.id.textViewSupportOSS);
+
         ColorDrawable drawable = (ColorDrawable) view.getRootView().getBackground();
         if (isColorDark(drawable.getColor())) {
-            textView.setTextColor(Color.parseColor("#FFFFFF"));
+            textView.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
+            textOSS.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
         } else {
-            textView.setTextColor(Color.parseColor("#000000"));
+            textView.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+            textOSS.setTextColor(getResources().getColor(android.R.color.primary_text_light));
         }
     }
 

@@ -9,19 +9,18 @@
     <com.mechdome.view.google.AdMobNativeView
         android:id="@+id/adview"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="7dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintHorizontal_bias="0.0"
         custom:layout_constraintLeft_toLeftOf="parent"
         custom:layout_constraintRight_toRightOf="parent"
-        custom:layout_constraintTop_toBottomOf="@+id/buttonBuy"
-        custom:layout_constraintVertical_bias="0.0"
-        />
+        custom:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/textView"
@@ -40,14 +39,27 @@
         custom:layout_constraintTop_toTopOf="parent"
         tools:textColor="?android:attr/textColorPrimary" />
 
+    <TextView
+        android:id="@+id/textViewSupportOSS"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="@string/mechdome_support_oss"
+        android:textColor="?android:attr/textColorPrimary"
+        custom:layout_constraintLeft_toLeftOf="parent"
+        custom:layout_constraintRight_toRightOf="parent"
+        tools:textColor="?android:attr/textColorPrimary"
+        android:layout_marginBottom="16dp"
+        custom:layout_constraintBottom_toTopOf="@+id/buttonBuy" />
+
     <Button
         android:id="@+id/buttonBuy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Disable Ads"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        custom:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:text="Disable Ads"
+        android:layout_marginBottom="8dp"
+        custom:layout_constraintBottom_toTopOf="@+id/adview"
         android:layout_marginLeft="8dp"
         custom:layout_constraintLeft_toLeftOf="parent" />
 
@@ -57,8 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Restore Purchase"
-        android:layout_marginTop="8dp"
-        custom:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginBottom="8dp"
+        custom:layout_constraintBottom_toTopOf="@+id/adview"
         android:layout_marginRight="8dp"
         custom:layout_constraintRight_toRightOf="parent" />
 

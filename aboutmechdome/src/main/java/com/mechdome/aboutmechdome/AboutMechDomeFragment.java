@@ -1,5 +1,6 @@
 package com.mechdome.aboutmechdome;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -106,7 +107,13 @@ public class AboutMechDomeFragment extends Fragment {
             }
         }
 
-        boolean testMode = Build.CPU_ABI.contains("86") ? true : ((AboutMechDomeActivity)getActivity()).inTestMode;
+        boolean testMode = false;
+        if (Build.CPU_ABI.contains("86")){
+            testMode = true;
+        }else if (getActivity() instanceof AboutMechDomeActivity){
+            testMode = ((AboutMechDomeActivity)getActivity()).inTestMode;
+        }
+
         AdMobNativeView adView = (AdMobNativeView)view.findViewById(R.id.adview);
         adView.init("ca-app-pub-2729669460650010~5828110486", "ca-app-pub-2729669460650010/7304843682", testMode);
         return view;

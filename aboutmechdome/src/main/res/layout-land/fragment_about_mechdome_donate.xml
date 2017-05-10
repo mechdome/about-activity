@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="@string/mechdome_intro"
+        android:textColor="?android:attr/textColorPrimary"
+        tools:textColor="?android:attr/textColorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        custom:layout_constraintLeft_toRightOf="@+id/imageView"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        custom:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        custom:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        custom:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textViewSupportOSS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="@string/mechdome_donate"
+        android:textColor="?android:attr/textColorPrimary"
+        tools:textColor="?android:attr/textColorPrimary"
+        android:layout_marginBottom="8dp"
+        custom:layout_constraintBottom_toTopOf="@+id/buttonBuy"
+        android:layout_marginLeft="8dp"
+        custom:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/imageView"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Donate"
+        custom:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        custom:layout_constraintLeft_toLeftOf="@+id/textViewSupportOSS"
+        custom:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:adjustViewBounds="false"
+        android:src="@drawable/mechdome_logo"
+        custom:layout_constraintLeft_toLeftOf="parent"
+        custom:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        custom:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        custom:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/radioButtonDonateSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Small" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDonanteMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Medium" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDonateLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Large" />
+    </RadioGroup>
+
+</android.support.constraint.ConstraintLayout>

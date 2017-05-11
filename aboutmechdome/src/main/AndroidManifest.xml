@@ -4,5 +4,8 @@
         <activity android:name=".AboutMechDomeActivity"
             android:label="@string/about_mechdome"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar"/>
+        <activity android:name=".DonateMechDomeActivity"
+            android:label="@string/about_mechdome"
+            android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar"/>
     </application>
 </manifest>

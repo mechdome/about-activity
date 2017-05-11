@@ -7,7 +7,7 @@
     tools:context="com.mechdome.aboutmechdome.AboutMechDomeActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_donate"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -24,7 +24,7 @@
         tools:textColor="?android:attr/textColorPrimary" />
 
     <TextView
-        android:id="@+id/textViewSupportOSS"
+        android:id="@+id/textViewSupportOSS_donate"
         android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:autoLink="web"
@@ -34,10 +34,10 @@
         custom:layout_constraintRight_toRightOf="parent"
         tools:textColor="?android:attr/textColorPrimary"
         android:layout_marginBottom="16dp"
-        custom:layout_constraintBottom_toTopOf="@+id/buttonBuy" />
+        custom:layout_constraintBottom_toTopOf="@+id/buttonDonate" />
 
     <Button
-        android:id="@+id/buttonBuy"
+        android:id="@+id/buttonDonate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -62,7 +62,9 @@
         android:src="@drawable/mechdome_logo"
         custom:layout_constraintLeft_toLeftOf="parent"
         custom:layout_constraintRight_toRightOf="parent"
-        custom:layout_constraintTop_toBottomOf="@+id/textView" />
+        custom:layout_constraintTop_toBottomOf="@+id/textView_donate"
+        android:layout_marginBottom="8dp"
+        custom:layout_constraintBottom_toTopOf="@+id/textViewSupportOSS_donate" />
 
     <RadioGroup
         android:layout_width="wrap_content"

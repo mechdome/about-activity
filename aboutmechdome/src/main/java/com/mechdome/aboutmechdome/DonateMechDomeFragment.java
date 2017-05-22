@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,6 @@ public class DonateMechDomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_about_mechdome_donate, container, false);
         donateButton = (Button)view.findViewById(R.id.buttonDonate);
-
         radioGroup = (RadioGroup)view.findViewById(R.id.radioGroup);
         donateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,14 +59,12 @@ public class DonateMechDomeFragment extends Fragment {
                     String productId = "";
                     if (radioTitle.equalsIgnoreCase("Large")){
                         productId = (bundle==null?null:bundle.getString("md_donate_large"));
-                        //Toast.makeText(getActivity(), "Large "+productId, Toast.LENGTH_SHORT).show();
                     }else if (radioTitle.equalsIgnoreCase("Medium")){
                         productId = (bundle==null?null:bundle.getString("md_donate_medium"));
-                        //Toast.makeText(getActivity(), "Medium "+productId, Toast.LENGTH_SHORT).show();
                     }else{
                         productId = (bundle==null?null:bundle.getString("md_donate_small"));
-                        //Toast.makeText(getActivity(), "Small "+productId, Toast.LENGTH_SHORT).show();
                     }
+//                    Toast.makeText(getActivity(), productId, Toast.LENGTH_LONG).show();
                     AppleAppStore.buy(productId, 1, new AppleAppStore.TransactionListener() {
                         public void onComplete(AppleAppStore.Status status) {
                             if (status == AppleAppStore.Status.Ok) {
@@ -81,12 +79,25 @@ public class DonateMechDomeFragment extends Fragment {
                                         hideAds();
                                     }
                                 });
+                            }else {
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                        builder.setMessage("Donation Failed")
+                                                .setTitle("OK");
+                                        builder.create().show();
+
+
+                                    }
+                                });
                             }
                         }
                     });
                 }
             }
         });
+
         return view;
     }
 

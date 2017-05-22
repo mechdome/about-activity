@@ -8,35 +8,37 @@
         android:id="@+id/textView_donate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:autoLink="web"
         android:text="@string/mechdome_intro"
         android:textColor="?android:attr/textColorPrimary"
-        tools:textColor="?android:attr/textColorPrimary"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        custom:layout_constraintLeft_toRightOf="@+id/imageView"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        custom:layout_constraintLeft_toRightOf="@+id/imageView_donate"
         custom:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         custom:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
+        tools:textColor="?android:attr/textColorPrimary"
         custom:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewSupportOSS_donate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:autoLink="web"
         android:text="@string/mechdome_donate"
         android:textColor="?android:attr/textColorPrimary"
-        tools:textColor="?android:attr/textColorPrimary"
-        android:layout_marginBottom="8dp"
-        custom:layout_constraintBottom_toTopOf="@+id/buttonBuy"
-        android:layout_marginLeft="8dp"
-        custom:layout_constraintLeft_toLeftOf="parent" />
+        custom:layout_constraintBottom_toTopOf="@+id/buttonDonate"
+        custom:layout_constraintLeft_toLeftOf="parent"
+        custom:layout_constraintRight_toRightOf="parent"
+        tools:textColor="?android:attr/textColorPrimary" />
 
     <Button
         android:id="@+id/buttonDonate"
@@ -50,7 +52,7 @@
         android:layout_marginRight="8dp"
         android:text="Donate"
         custom:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        custom:layout_constraintLeft_toLeftOf="@+id/textViewSupportOSS"
+        custom:layout_constraintLeft_toLeftOf="parent"
         custom:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
@@ -60,16 +62,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
         android:adjustViewBounds="false"
         android:src="@drawable/mechdome_logo"
+        android:layout_marginLeft="8dp"
         custom:layout_constraintLeft_toLeftOf="parent"
         custom:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="68dp"
-        android:layout_marginRight="8dp"
-        custom:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="8dp"
-        custom:layout_constraintBottom_toTopOf="@+id/radioGroup" />
+        android:layout_marginTop="8dp" />
 
 
     <RadioGroup
@@ -89,6 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="true"
             android:text="Small" />
 
         <RadioButton

@@ -4,4 +4,6 @@
     <string name="mechdome_intro">This app was brought to iOS using <a href="http://www.mechdome.com">MechDome</a>.\n\nConvert your own apps to iOS automatically without any additional development, learn how at <a href="http://www.mechdome.com">www.mechdome.com</a></string>
     <string name="mechdome_support_oss">The ad helps us bring more open source apps to iOS. </string>
     <string name="mechdome_donate">Consider making a donation if you like this app. Your donation also helps us bring more open source apps to iOS. </string>
+
+    <string name="ad_unit_id">ca-app-pub-2729669460650010/7304843682</string>
 </resources>

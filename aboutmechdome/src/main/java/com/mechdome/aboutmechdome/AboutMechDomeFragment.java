@@ -9,14 +9,19 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.NativeExpressAdView;
+import com.google.android.gms.ads.VideoController;
+import com.google.android.gms.ads.VideoOptions;
 import com.mechdome.external.AppleAppStore;
-import com.mechdome.view.google.AdMobNativeView;
+
 
 import static android.view.View.GONE;
 
@@ -28,17 +33,18 @@ import static android.view.View.GONE;
  */
 public class AboutMechDomeFragment extends Fragment {
     private View view;
+    NativeExpressAdView mAdView;
+    VideoController mVideoController;
 
     private void hideAds() {
         Button buyButton = (Button)view.findViewById(R.id.buttonBuy);
         Button restoreButton = (Button)view.findViewById(R.id.buttonRestore);
-        View adView = view.findViewById(R.id.adview);
         TextView textOSS = (TextView)view.findViewById(R.id.textViewSupportOSS);
 
-        adView.setVisibility(GONE);
         buyButton.setVisibility(GONE);
         restoreButton.setVisibility(GONE);
         textOSS.setVisibility(GONE);
+        mAdView.setSystemUiVisibility(GONE);
 
         getActivity().findViewById(android.R.id.content).requestLayout();
     }
@@ -107,15 +113,27 @@ public class AboutMechDomeFragment extends Fragment {
             }
         }
 
-        boolean testMode = false;
-        if (Build.CPU_ABI.contains("86")){
-            testMode = true;
-        }else if (getActivity() instanceof AboutMechDomeActivity){
-            testMode = ((AboutMechDomeActivity)getActivity()).inTestMode;
-        }
+        // Locate the NativeExpressAdView.
+        mAdView = (NativeExpressAdView) view.findViewById(R.id.adView);
 
-        AdMobNativeView adView = (AdMobNativeView)view.findViewById(R.id.adview);
-        adView.init("ca-app-pub-2729669460650010~5828110486", "ca-app-pub-2729669460650010/7304843682", testMode);
+        // Set its video options.
+        mAdView.setVideoOptions(new VideoOptions.Builder()
+                .setStartMuted(true)
+                .build());
+
+        // The VideoController can be used to get lifecycle events and info about an ad's video
+        // asset. One will always be returned by getVideoController, even if the ad has no video
+        // asset.
+        mVideoController = mAdView.getVideoController();
+        mVideoController.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
+            @Override
+            public void onVideoEnd() {
+                super.onVideoEnd();
+            }
+        });
+
+        mAdView.loadAd(new AdRequest.Builder().build());
+
         return view;
     }
 

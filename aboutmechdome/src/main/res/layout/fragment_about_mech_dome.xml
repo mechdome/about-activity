@@ -27,7 +27,8 @@
         android:src="@drawable/mechdome_logo"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="11dp"
+        android:contentDescription="@string/md_logo"/>
 
     <TextView
         android:id="@+id/textViewSupportOSS"
@@ -44,7 +45,7 @@
         android:id="@+id/buttonBuy"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Disable Ads"
+        android:text="@string/disable_ads"
         android:layout_marginBottom="22dp"
         android:layout_above="@+id/adView"
         android:layout_alignLeft="@+id/textViewSupportOSS"
@@ -54,7 +55,7 @@
         android:id="@+id/buttonRestore"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Restore Purchase"
+        android:text="@string/restore_purchase"
         android:layout_alignBaseline="@+id/buttonBuy"
         android:layout_alignBottom="@+id/buttonBuy"
         android:layout_alignRight="@+id/textViewSupportOSS"

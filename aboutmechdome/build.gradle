@@ -65,50 +65,50 @@ archivesBaseName = "MechDome-About"
 version = "1.2"
 
 
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-//
-//            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
-//                authentication(userName: ossrhUsername, password: ossrhPassword)
-//            }
-//
-//            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots") {
-//                authentication(userName: ossrhUsername, password: ossrhPassword)
-//            }
-//
-//            pom.project {
-//                name 'MechDome About'
-//                packaging 'aar'
-//                artifactId 'MechDome-About'
-//                groupId 'com.mechdome'
-//                version '1.2'
-//                // optionally artifactId can be defined here
-//                description 'Pushing MechDome Application to Maven Central repo'
-//                url 'http://www.mechdome.com'
-//
-//                scm {
-//                    connection 'scm:git:https://github.com/mechdome/about-activity.git'
-//                    developerConnection 'scm:git:https://github.com/mechdome/about-activity.git'
-//                    url 'https://github.com/mechdome/about-activity/tree/master'
-//                }
-//
-//                licenses {
-//                    license {
-//                        name 'The Apache License, Version 2.0'
-//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    }
-//                }
-//
-//                developers {
-//                    developer {
-//                        id 'Nandu'
-//                        name 'Dayananda Saraswathi Ampapathina'
-//                        email 'nandu@mechdome.com'
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name 'MechDome About'
+                packaging 'aar'
+                artifactId 'MechDome-About'
+                groupId 'com.mechdome'
+                version '1.2'
+                // optionally artifactId can be defined here
+                description 'Pushing MechDome Application to Maven Central repo'
+                url 'http://www.mechdome.com'
+
+                scm {
+                    connection 'scm:git:https://github.com/mechdome/about-activity.git'
+                    developerConnection 'scm:git:https://github.com/mechdome/about-activity.git'
+                    url 'https://github.com/mechdome/about-activity/tree/master'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'Nandu'
+                        name 'Dayananda Saraswathi Ampapathina'
+                        email 'nandu@mechdome.com'
+                    }
+                }
+            }
+        }
+    }
+}

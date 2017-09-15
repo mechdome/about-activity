@@ -11,11 +11,11 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 12
-        versionName "1.2"
+        versionName "1.6"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,13 +25,16 @@ android {
     }
     productFlavors {
     }
+
+    defaultPublishConfig "release"
+
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.mechdome:MechDome-Api:0.6'
-    compile 'com.google.firebase:firebase-ads:11.2.0'
+    compile 'com.google.android.gms:play-services-ads:11.2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
@@ -83,7 +86,7 @@ uploadArchives {
                 packaging 'aar'
                 artifactId 'MechDome-About'
                 groupId 'com.mechdome'
-                version '1.2'
+                version '1.6'
                 // optionally artifactId can be defined here
                 description 'Pushing MechDome Application to Maven Central repo'
                 url 'http://www.mechdome.com'
